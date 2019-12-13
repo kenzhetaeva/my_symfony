@@ -1,19 +1,20 @@
 <?php
-// src/Controller
+// src/Controller/mine_symfony/MainController.php
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-//use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class MainController {
+class MainController extends AbstractController {
     /**
-    * @Route("/c")
+    * @Route("/", name = "index")
     */
     public function index() {
-        return new Response(
-            '<h1>This is index page<br></h1>'
-        );
+        $name = "Programmers";
+        return $this->render('pages/index.html.twig', [
+            'name' => $name,
+        ]);
     }
 
 }
